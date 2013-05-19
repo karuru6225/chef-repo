@@ -18,3 +18,10 @@ end
 package "libmysqlclient-dev" do
 	action :install
 end
+
+cookbook_file "/usr/local/bin/create_rails_project.sh" do
+	owner "root"
+	group "root"
+	mode "0755"
+	source "create_rails_project.sh"
+end

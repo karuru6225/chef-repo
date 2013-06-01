@@ -26,6 +26,13 @@ cookbook_file "/etc/profile.d/rbenv.sh do
 	source "rbenv.sh"
 end
 
+cookbook_file "/etc/profile.d/bundler.sh do
+	owner "root"
+	group "root"
+	mode "0644"
+	source "bundler.sh"
+end
+
 cookbook_file "/usr/local/bin/create_rails_project.sh" do
 	owner "root"
 	group "root"

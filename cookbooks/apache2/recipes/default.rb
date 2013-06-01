@@ -10,3 +10,8 @@
 package "apache2" do
 	action :install
 end
+
+service "apache2" do
+	pattern "apache2"
+	action [:enable]
+end

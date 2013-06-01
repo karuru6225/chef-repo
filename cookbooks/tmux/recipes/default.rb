@@ -17,3 +17,10 @@ cookbook_file "/root/.tmux.conf" do
 	mode "0644"
 	source "tmux.conf"
 end
+
+cookbook_file "/etc/profile.d/tmux.sh" do
+	owner "root"
+	group "root"
+	mode "0644"
+	source "tmux.sh"
+end

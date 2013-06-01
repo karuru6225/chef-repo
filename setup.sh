@@ -56,8 +56,3 @@ chmod -R g+rwxs ruby-build
 rbenv install 1.9.3-p392
 rbenv global 1.9.3-p392
 gem install bundler chef --no-rdoc --no-ri
-
-if [ ! -d ~/.ssh ];then
-	mkdir ~/.ssh
-	chmod 700 ~/.ssh
-fi

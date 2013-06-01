@@ -38,9 +38,18 @@ cd /usr/local/
 rm -rf rbenv
 git clone git://github.com/sstephenson/rbenv.git rbenv
 
+cat > /etc/profile.d/rbenv.sh << EOT
+#!/bin/bash
+
+export RBENV_ROOT=/usr/local/rbenv
+export PATH="\$RBENV_ROOT/bin:\$PATH"
+eval "\$(rbenv init -)"
+EOT
+
 export RBENV_ROOT=/usr/local/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
+
 if [ "`grep rbadmin /etc/group`" == "" ]; then
 	/usr/sbin/groupadd rbadmin
 fi

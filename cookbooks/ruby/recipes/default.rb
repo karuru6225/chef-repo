@@ -19,14 +19,14 @@ package "libmysqlclient-dev" do
 	action :install
 end
 
-cookbook_file "/etc/profile.d/rbenv.sh do
+cookbook_file "/etc/profile.d/rbenv.sh" do
 	owner "root"
 	group "root"
 	mode "0644"
 	source "rbenv.sh"
 end
 
-cookbook_file "/etc/profile.d/bundler.sh do
+cookbook_file "/etc/profile.d/bundler.sh" do
 	owner "root"
 	group "root"
 	mode "0644"

@@ -38,14 +38,6 @@ cd /usr/local/
 rm -rf rbenv
 git clone git://github.com/sstephenson/rbenv.git rbenv
 
-if [ "`grep RBENV_ROOT /etc/profile`" == "" ];then
-cat >> /etc/profile <<EOT
-export RBENV_ROOT=/usr/local/rbenv
-export PATH="\$RBENV_ROOT/bin:\$PATH"
-eval "\$(rbenv init -)"
-EOT
-fi
-
 export RBENV_ROOT=/usr/local/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"

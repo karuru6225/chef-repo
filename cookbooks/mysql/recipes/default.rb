@@ -11,7 +11,7 @@ package "mysql-server" do
 	action :install
 end
 
-service "mysqld" do
-	pattern "mysqld"
+service "mysql" do
+	pattern "mysql"
 	action [:enable]
 end

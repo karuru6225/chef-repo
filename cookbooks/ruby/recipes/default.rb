@@ -19,6 +19,13 @@ package "libmysqlclient-dev" do
 	action :install
 end
 
+cookbook_file "/etc/profile.d/rbenv.sh do
+	owner "root"
+	group "root"
+	mode "0644"
+	source "rbenv.sh"
+end
+
 cookbook_file "/usr/local/bin/create_rails_project.sh" do
 	owner "root"
 	group "root"

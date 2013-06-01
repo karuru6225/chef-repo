@@ -1,10 +1,10 @@
-# CHANGELOG for packages
+# CHANGELOG for ruby
 
-This file is used to list changes made in each version of packages.
+This file is used to list changes made in each version of ruby.
 
 ## 0.1.0:
 
-* Initial release of packages
+* Initial release of ruby
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

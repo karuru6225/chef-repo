@@ -1,7 +1,9 @@
 {
 	"run_list" : [
+		"recipe[bash]",
+		"recipe[vim]",
+		"recipe[tmux]",
 		"recipe[apache2]",
-		"recipe[packages]",
 		"recipe[ruby]",
 		"recipe[mysql]"
 		]

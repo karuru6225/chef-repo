@@ -101,8 +101,8 @@ set number
 set listchars=tab:-\ 
 set list
 "タブ幅を設定する
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 "入力中のコマンドをステータスに表示する
 set showcmd
 "括弧入力時の対応する括弧を表示

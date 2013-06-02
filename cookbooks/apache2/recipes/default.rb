@@ -18,9 +18,5 @@ service "apache2" do
 	when "debian"
 		service_name "apache2"
 	end
-	action :enable
-end
-
-service "apache2" do
-  action :restart
+	action [:enable, :restart]
 end

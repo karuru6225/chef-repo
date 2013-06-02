@@ -18,9 +18,5 @@ service "mysql" do
 	when "debian"
 		service_name "mysql"
 	end
-	action [:enable]
-end
-
-service "mysql" do
-  action :restart
+	action [:enable, :restart]
 end

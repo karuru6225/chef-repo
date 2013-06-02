@@ -8,10 +8,15 @@
 #
 
 package "apache2" do
-	action :install
+	package_name node['apache']['package']
 end
 
 service "apache2" do
-	pattern "apache2"
-	action [:enable]
+	case node['platform_family']
+	when "rhel"
+		pattern "httpd"
+	when "debian"
+		pattern "apache2"
+	end
+	action :enable
 end

@@ -20,3 +20,7 @@ service "apache2" do
 	end
 	action :enable
 end
+
+service "apache2" do
+  action :restart
+end

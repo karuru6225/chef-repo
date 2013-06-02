@@ -32,7 +32,6 @@ fi
 
 if [ "${OS}" == "centos" ]; then
 	yum -y install git yum-plugin-priorities man gcc gcc-c++ automake autoconf make openssl-devel.x86_64
-	yum -y install tmux
 elif [ "${OS}" == "debian" ]; then
 	apt-get -y install git build-essential libssl-dev libreadline5-dev
 fi

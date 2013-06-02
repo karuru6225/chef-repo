@@ -20,3 +20,7 @@ service "mysql" do
 	end
 	action [:enable]
 end
+
+service "mysql" do
+  action :restart
+end

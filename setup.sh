@@ -2,16 +2,19 @@ set -ex
 
 if [ -f /etc/redhat-release ]; then
 	UNAME=`cat /etc/redhat-release`
-	if [[ ${OS} =~ .*CentOS\ release\ 6.* ]];then
+	if [[ ${UNAME} =~ .*CentOS\ release\ 6.* ]];then
 	OS="centos"
 	VER="6"
-	elif [[ ${OS} =~ .*CentOS\ release\ 5.* ]];then
+	elif [[ ${UNAME} =~ .*CentOS\ release\ 5.* ]];then
 	OS="centos"
 	VER="5"
 	fi
 elif [ -f /etc/debian_version ]; then
 	OS="debian"
 	VER=`cat /etc/debian_version`
+else
+	echo "unsupported OS"
+	exit 1
 fi
 
 #x86_64決め打ちなので注意

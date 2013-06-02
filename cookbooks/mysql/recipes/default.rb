@@ -12,6 +12,11 @@ package "mysql-server" do
 end
 
 service "mysql" do
-	pattern "mysql"
+	case node['platform_family']
+	when "rhel"
+		service_name "mysqld"
+	when "debian"
+		service_name "mysql"
+	end
 	action [:enable]
 end

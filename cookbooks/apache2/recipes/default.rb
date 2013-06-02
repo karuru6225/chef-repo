@@ -14,9 +14,9 @@ end
 service "apache2" do
 	case node['platform_family']
 	when "rhel"
-		pattern "httpd"
+		service_name "httpd"
 	when "debian"
-		pattern "apache2"
+		service_name "apache2"
 	end
 	action :enable
 end

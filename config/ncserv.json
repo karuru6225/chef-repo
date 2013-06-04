@@ -1,6 +1,6 @@
 {
 	"run_list" : [
-		"recipe[users]",
+		"recipe[users::sysadmins]",
 		"recipe[ssh]",
 		"recipe[apache2]",
 		"recipe[mysql]"

@@ -7,13 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "vim" do
+package "openssh-server" do
 	action :install
 end
 
-cookbook_file "/root/.vimrc" do
-	owner "root"
-	group "root"
-	mode "0644"
-	source "vimrc"
+
+
+service "openssh" do
+	case node['platform_family']
+	when "rhel"
+		service_name "sshd"
+	when "debian"
+		service_name "ssh"
+	end
+	action [:enable, :restart]
 end

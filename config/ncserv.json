@@ -1,5 +1,7 @@
 {
 	"run_list" : [
+		"recipe[users]",
+		"recipe[ssh]",
 		"recipe[apache2]",
 		"recipe[mysql]"
 		]

@@ -17,6 +17,6 @@ cookbook_file "/etc/httpd/conf.d/phpmyadmin.conf" do
 	mode "0644"
 	source "phpmyadmin.conf"
 	action :create
-	notifies :restart, "service[httpd]"
+	notifies :restart, "service[apache2]"
 end
 

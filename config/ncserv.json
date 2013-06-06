@@ -5,6 +5,7 @@
 		"recipe[vim]",
 		"recipe[ssh]",
 		"recipe[apache2]",
-		"recipe[mysql]"
+		"recipe[mysql]",
+		"recipe[phpMyAdmin]"
 		]
 }

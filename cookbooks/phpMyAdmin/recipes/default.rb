@@ -15,6 +15,7 @@ git "/var/www/html/phpmyadmin" do
 	repository "https://github.com/phpmyadmin/phpmyadmin.git"
 	reference "master"
 	revision "RELEASE_4_0_3"
+	depth 1
 	action :sync
 end
 

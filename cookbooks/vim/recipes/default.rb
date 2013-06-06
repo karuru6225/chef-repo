@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ruby
+# Cookbook Name:: vim
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME

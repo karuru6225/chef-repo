@@ -1,5 +1,6 @@
 {
 	"id" : "kano",
 	"home" : "/home/kano",
-	"ssh-keys" : "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFp6bXff1y3lNmlBp94VQ4eLOOysmFTXDj6e8ZlynTG4wjlExBe4BPgp16sXEC9Rmi40T63kYqEMywEd9QnY9b9KgR4QixPfvslTiTirNd48awi6Y3cor9n5CSIwuU2BM0CHDj1AEEGhgAMm1bc5OFchhMNgIkYHWcPwGMXOg3PGebpsSgpIrOtaexbRnpfVJeHPOOJdc7z3+znvU3Bb8OpPOl+mvCDP11MnAFzqwcuz/YOMNn0FHpSrZL/qJEAt8NaZOVza2/NI6pIh4JsA6y7HANvxNEit+vtm8zGyVDGnXq+Fh59iKaRuXVD8s7iyhWKNaBXnu/vDKRINSpbS5D kano@kanou-no-MacBook-Air.local"
+	"ssh-keys" : "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFp6bXff1y3lNmlBp94VQ4eLOOysmFTXDj6e8ZlynTG4wjlExBe4BPgp16sXEC9Rmi40T63kYqEMywEd9QnY9b9KgR4QixPfvslTiTirNd48awi6Y3cor9n5CSIwuU2BM0CHDj1AEEGhgAMm1bc5OFchhMNgIkYHWcPwGMXOg3PGebpsSgpIrOtaexbRnpfVJeHPOOJdc7z3+znvU3Bb8OpPOl+mvCDP11MnAFzqwcuz/YOMNn0FHpSrZL/qJEAt8NaZOVza2/NI6pIh4JsA6y7HANvxNEit+vtm8zGyVDGnXq+Fh59iKaRuXVD8s7iyhWKNaBXnu/vDKRINSpbS5D kano@kanou-no-MacBook-Air.local",
+	"sudoer" : true
 }

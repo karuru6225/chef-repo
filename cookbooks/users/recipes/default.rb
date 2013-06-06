@@ -41,4 +41,16 @@ data_ids.each do |id|
 		})
 		action [:create]
 	end
+	if u['sudoer'] then
+		template '/etc/sudoers.d/' + u['id'] do
+			owner 'root'
+			group 'root'
+			mode '0440'
+			source 'sudoers.erb'
+			variables({
+				:uname => u['id']
+			})
+			action [:create]
+		end
+	end
 end

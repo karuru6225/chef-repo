@@ -17,3 +17,10 @@ cookbook_file "/etc/tmux.conf" do
 	mode "0644"
 	source "tmux.conf"
 end
+
+file "/etc/profile.d/tmux.sh" do
+	owner "root"
+	group "root"
+	mode "0644"
+	content "alias ta='tmux has-session && tmux attach  || tmux ; exit'"
+end

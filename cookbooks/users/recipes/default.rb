@@ -18,21 +18,21 @@
 #
 
 # Empty default recipe for including LWRPs.
-cookbook_files "/etc/skel/.bash_logout" do
+cookbook_file "/etc/skel/.bash_logout" do
 	owner 'root'
 	group 'root'
 	mode '0644'
 	source 'bash_logout'
 end
 
-cookbook_files "/etc/skel/.bash_profile" do
+cookbook_file "/etc/skel/.bash_profile" do
 	owner 'root'
 	group 'root'
 	mode '0644'
 	source 'bash_profile'
 end
 
-cookbook_files "/etc/skel/.bashrc" do
+cookbook_file "/etc/skel/.bashrc" do
 	owner 'root'
 	group 'root'
 	mode '0644'

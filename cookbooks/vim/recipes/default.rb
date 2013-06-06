@@ -11,7 +11,7 @@ package "vim" do
 	action :install
 end
 
-cookbook_file "/root/.vimrc" do
+cookbook_file "/etc/vimrc" do
 	owner "root"
 	group "root"
 	mode "0644"

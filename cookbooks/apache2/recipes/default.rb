@@ -21,7 +21,16 @@ service "apache2" do
 	action [:enable]
 end
 
-cookbook_file node['apache']['dir'] + '/' + node['apache']['confdir'] + '/000-main.conf' do
+cookbook_file node['apahce']['home'] + '/' + node['apache']['conffile'] do
+	owner 'root'
+	group 'root'
+	mode '0644'
+	source 'httpd.conf'
+	action :create
+	notifies :restart, "service[apache2]"
+end
+
+cookbook_file node['apache']['home'] + '/' + node['apache']['confdir'] + '/000-main.conf' do
 	owner 'root'
 	group 'root'
 	mode '0644'

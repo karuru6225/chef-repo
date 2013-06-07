@@ -27,3 +27,4 @@ case platform
 		default['apache']['dir']		= "/etc/apache2"
 		default['apache']['confdir']		= "site-enabled"
 end
+

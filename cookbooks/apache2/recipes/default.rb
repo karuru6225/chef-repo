@@ -21,7 +21,7 @@ service "apache2" do
 	action [:enable]
 end
 
-cookbook_file node['apahce']['home'] + '/' + node['apache']['conffile'] do
+cookbook_file node['apache']['home'] + '/' + node['apache']['conffile'] do
 	owner 'root'
 	group 'root'
 	mode '0644'

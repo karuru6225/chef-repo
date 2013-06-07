@@ -6,6 +6,7 @@
 		"recipe[ssh]",
 		"recipe[apache2]",
 		"recipe[mysql]",
+		"recipe[php]"
 		"recipe[phpMyAdmin]"
 		]
 }

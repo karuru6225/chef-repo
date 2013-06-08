@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "vim" do
+package "vim-enhanced" do
 	action :install
 end
 

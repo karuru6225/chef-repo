@@ -18,6 +18,7 @@
 #
 
 case platform
+	when "amazon"
 	when "centos"
 		default['apache']['package']	= "httpd"
 		default['apache']['home']		= "/etc/httpd"

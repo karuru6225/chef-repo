@@ -1,5 +1,5 @@
 case platform
-	when "centos"
+	when "centos", "amazon"
 		default['ruby']['packages'] = [
 			"sqlite-devel",
 			"ruby-mysql"

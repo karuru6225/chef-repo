@@ -7,17 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "libsqlite3-dev" do
-	action :install
-end
-
-package "libmysql-ruby1.9.1" do
-	action :install
-end
-
-package "libmysqlclient-dev" do
-	action :install
-end
+node['ruby']['packages'].each{|value|
+	package value do
+		action :install
+	end
+}
 
 cookbook_file "/etc/profile.d/rbenv.sh" do
 	owner "root"

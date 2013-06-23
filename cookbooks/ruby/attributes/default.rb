@@ -2,7 +2,8 @@ case platform
 	when "centos", "amazon"
 		default['ruby']['packages'] = [
 			"sqlite-devel",
-			"ruby-mysql"
+			"ruby-mysql",
+			"mysql-devel"
 		]
 	when "debian"
 		default['ruby']['packages'] = [

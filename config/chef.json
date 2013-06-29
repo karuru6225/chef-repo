@@ -5,6 +5,8 @@
 		"recipe[tmux]",
 		"recipe[apache2]",
 		"recipe[ruby]",
-		"recipe[mysql]"
+		"recipe[mysql]",
+		"recipe[php]",
+		"recipe[phpMyAdmin]"
 		]
 }

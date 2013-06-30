@@ -20,11 +20,14 @@ git node['phpMyAdmin']['directory'] do
 end
 
 
-cookbook_file node['phpMyAdmin']['conf'] do
+template node['phpMyAdmin']['conf'] do
 	owner "root"
 	group "root"
 	mode "0644"
-	source "phpmyadmin.conf"
+	source "phpmyadmin.conf.erb"
+	variables({
+		:confdir => node['phpMyAdmin']['conf']
+	})
 	action :create
 	notifies :restart, "service[apache2]"
 end

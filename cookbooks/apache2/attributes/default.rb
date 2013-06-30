@@ -26,7 +26,7 @@ case platform
 	when "debian"
 		default['apache']['package']	= "apache2"
 		default['apache']['home']		= "/etc/apache2"
-		default['apache']['confdir']		= "site-enabled"
+		default['apache']['confdir']		= "sites-enabled"
 		default['apache']['conffile']		= "apache2.conf"
 end
 

@@ -7,9 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "vim-enhanced" do
-	action :install
-end
+node['vim']['packages'].each{|value|
+	package value do
+		action :install
+	end
+}
 
 cookbook_file "/etc/vimrc" do
 	owner "root"

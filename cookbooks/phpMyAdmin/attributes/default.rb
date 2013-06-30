@@ -1,31 +1,8 @@
-#
-# Cookbook Name:: phpMyAdmin
-# Recipe:: default
-#
-# Copyright 2013, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-
-package "phpmyadmin" do
-	action :purge
+case platform
+	when "centos"
+		default['phpMyAdmin']['directory'] = "/var/www/html/phpmyadmin"
+		default['phpMyAdmin']['conf'] = "/etc/httpd/conf.d/phpmyadmin.conf"
+	when "debian"
+		default['phpMyAdmin']['directory'] = "/var/www/phpmyadmin"
+		default['phpMyAdmin']['conf'] = "/etc/apache2/sites-enabled/phpmyadmin.conf"
 end
-
-git node['phpMyAdmin']['directory'] do
-	repository "https://github.com/phpmyadmin/phpmyadmin.git"
-	reference "master"
-	revision "RELEASE_4_0_3"
-	depth 1
-	action :sync
-end
-
-
-cookbook_file node['phpMyAdmin']['conf'] do
-	owner "root"
-	group "root"
-	mode "0644"
-	source "phpmyadmin.conf"
-	action :create
-	notifies :restart, "service[apache2]"
-end
-

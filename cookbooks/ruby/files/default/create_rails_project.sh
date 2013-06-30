@@ -15,7 +15,7 @@ mkdir ${tmp_dir}
 cd ${tmp_dir}
 cat > Gemfile << EOS
 source "http://rubygems.org"
-gem "rails", "3.2.13"
+gem "rails", "4.0.0"
 EOS
 
 bundle install --path vendor/bundle 2> /dev/null > /dev/null

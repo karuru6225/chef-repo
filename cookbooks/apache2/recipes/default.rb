@@ -39,5 +39,8 @@ template node['apache']['home'] + '/' + node['apache']['confdir'] + '/000-main.c
 	mode '0644'
 	source '000-main.conf.erb'
 	action :create
+	variables({
+		:serverroot => node['apache']['home']
+	})
 	notifies :restart, "service[apache2]"
 end

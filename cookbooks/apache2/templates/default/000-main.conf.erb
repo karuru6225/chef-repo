@@ -1,12 +1,12 @@
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
 
-	DocumentRoot /var/www/html/
+	DocumentRoot <%= @serverroot %>
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
 	</Directory>
-	<Directory /var/www/html/>
+	<Directory  <%= @serverroot %>>
 		Options FollowSymLinks MultiViews
 		AllowOverride All
 		Order allow,deny

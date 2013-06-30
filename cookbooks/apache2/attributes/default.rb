@@ -23,7 +23,7 @@ case platform
 		default['apache']['home']		= "/etc/httpd"
 		default['apache']['confdir']		= "conf.d"
 		default['apache']['conffile']		= "conf/httpd.conf"
-	when "debian"
+	when "debian", "ubuntu"
 		default['apache']['package']	= "apache2"
 		default['apache']['home']		= "/etc/apache2"
 		default['apache']['confdir']		= "sites-enabled"

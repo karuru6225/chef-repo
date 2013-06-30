@@ -3,7 +3,7 @@ case platform
 		default['vim']['packages'] = [
 			"vim-enhanced"
 		]
-	when "debian"
+	when "debian", "ubuntu"
 		default['vim']['packages'] = [
 			"vim"
 		]

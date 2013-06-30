@@ -5,7 +5,7 @@ case platform
 			"ruby-mysql",
 			"mysql-devel"
 		]
-	when "debian"
+	when "debian", "ubuntu"
 		default['ruby']['packages'] = [
 			"libsqlite3-dev",
 			"libmysql-ruby1.9.1",

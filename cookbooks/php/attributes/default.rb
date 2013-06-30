@@ -5,7 +5,7 @@ case platform
 			"php-mbstring",
 			"php-mysql"
 		]
-	when "debian"
+	when "debian", "ubuntu"
 		default['php']['packages'] = [
 			"php5",
 			"php5-mysql"

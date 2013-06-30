@@ -28,3 +28,4 @@ cookbook_file node['phpMyAdmin']['conf'] do
 	action :create
 	notifies :restart, "service[apache2]"
 end
+

@@ -11,7 +11,7 @@ OUTPUT_KNIFE=${BASEDIR}/knife.rb
 
 cat<<EOF>$OUTPUT_SOLO
 file_cache_path "/tmp/chef-solo"
-cookbook_path "site-cookbooks"
+cookbook_path ["cookbooks", "site-cookbooks"]
 data_bag_path "data_bags"
 role_path "roles"
 EOF

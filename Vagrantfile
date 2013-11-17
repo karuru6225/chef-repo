@@ -98,13 +98,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"oracle" => {
 				"accept_oracle_download_terms" => true
 			}
-		},
-		"jenkins" => {
-			"server" => {
-				"plugins" => [
-					{ "name" => "git" }
-				]
-			}
 		}
 	}
 	chef.add_recipe "yum::epel"
@@ -119,7 +112,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	chef.add_recipe "mysql"
 	chef.add_recipe "php"
 	chef.add_recipe "phpMyAdmin"
-	chef.add_recipe "java::oracle"
+#	chef.add_recipe "java::oracle"
 	chef.add_recipe "yumrepo::jenkins"
 	chef.add_recipe "jenkins::server"
 end

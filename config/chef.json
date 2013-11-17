@@ -1,13 +1,15 @@
 {
 	"run_list" : [
-		"recipe[yum::epel]"
+		"recipe[yum::epel]",
+		"recipe[basic-packages]",
 		"recipe[bash]",
 		"recipe[vim]",
 		"recipe[tmux]",
 		"recipe[apache2]",
-		"recipe[ruby]",
 		"recipe[mysql]",
 		"recipe[php]",
-		"recipe[phpMyAdmin]"
-		]
+		"recipe[phpMyAdmin]",
+		"recipe[yumrepo::jenkins]",
+		"recipe[jenkins::server]
+	],
 }

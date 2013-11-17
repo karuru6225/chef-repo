@@ -7,11 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node['ruby']['packages'].each{|value|
-	package value do
-		action :install
-	end
-}
+case node[:platform]
+when "centos", "amazon"
+	node['ruby']['packages'].each{|value|
+		yum_package value[:name] do
+			arch value[:arch]
+			action :install
+		end
+	}
+end
 
 cookbook_file "/etc/profile.d/rbenv.sh" do
 	owner "root"

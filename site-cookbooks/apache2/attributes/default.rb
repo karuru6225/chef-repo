@@ -21,11 +21,13 @@ case platform
 	when "centos", "amazon"
 		default['apache']['package']	= "httpd"
 		default['apache']['home']		= "/etc/httpd"
+		default['apache']['docroot']		= "/var/www/html"
 		default['apache']['confdir']		= "conf.d"
 		default['apache']['conffile']		= "conf/httpd.conf"
 	when "debian", "ubuntu"
 		default['apache']['package']	= "apache2"
 		default['apache']['home']		= "/etc/apache2"
+		default['apache']['docroot']		= "/var/www"
 		default['apache']['confdir']		= "sites-enabled"
 		default['apache']['conffile']		= "apache2.conf"
 end

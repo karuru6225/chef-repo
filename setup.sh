@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -ex
 
 if [ -f /etc/redhat-release ]; then

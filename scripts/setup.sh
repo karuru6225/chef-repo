@@ -54,4 +54,5 @@ chmod -R g+rwxs ruby-build
 #rbenv global 1.9.3-p448
 rbenv install 2.0.0-p247
 rbenv global 2.0.0-p247
-gem install bundler chef berkshelf --no-rdoc --no-ri
+gem install bundler --no-rdoc --no-ri
+

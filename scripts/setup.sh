@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#以下のコマンドで実行する
+#curl -L https://raw.github.com/karuru6225/chef-repo/master/scripts/setup.sh | bash
+
 set -ex
 
 if [ -f /etc/redhat-release ]; then
@@ -32,9 +35,8 @@ export PATH="\$RBENV_ROOT/bin:\$PATH"
 eval "\$(rbenv init -)"
 EOT
 
-export RBENV_ROOT=/usr/local/rbenv
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
+chmod u+x /etc/profile.d/rbenv.sh
+/etc/profile.d/rbenv.sh
 
 if [ "`grep rbadmin /etc/group`" == "" ]; then
 	/usr/sbin/groupadd rbadmin

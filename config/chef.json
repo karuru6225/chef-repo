@@ -10,6 +10,6 @@
 		"recipe[php]",
 		"recipe[phpMyAdmin]",
 		"recipe[yumrepo::jenkins]",
-		"recipe[jenkins::server]
-	],
+		"recipe[jenkins::server]"
+	]
 }

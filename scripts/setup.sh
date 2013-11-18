@@ -6,5 +6,5 @@
 set -ex
 
 yum update -y
-yum install git
+yum install git -y
 curl -L https://www.opscode.com/chef/install.sh | bash

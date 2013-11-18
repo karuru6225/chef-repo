@@ -50,6 +50,10 @@ git clone git://github.com/sstephenson/ruby-build.git
 chgrp -R rbadmin ruby-build
 chmod -R g+rwxs ruby-build
 
+git clone https://github.com/ianheggie/rbenv-binstubs.git 
+chgrp -R rbadmin rbenv-binstubs
+chmod -R g+rwxs rbenv-binstubs
+
 #rbenv install 1.9.3-p448
 #rbenv global 1.9.3-p448
 rbenv install 2.0.0-p247

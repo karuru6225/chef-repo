@@ -3,12 +3,20 @@
 #以下のコマンドで実行する
 #curl -L https://raw.github.com/karuru6225/chef-repo/master/scripts/setup.sh | bash
 
-set -ex
-
 if [ -f /etc/redhat-release ]; then
 	UNAME=`cat /etc/redhat-release`
 	if [[ "${UNAME}" =~ .*CentOS.* ]];then
-	OS="centos"
+		OS="centos"
+		if [ "${USE_MY_REPO}" = "no" ];then
+			echo -n "input your repo :"
+			read RURL
+			RURL=${RURL%/}
+			RURL=${RURL//\//\\\/}
+			mv /etc/yum.repos.d/CentOS-Base.repo{,.bak}
+#			mv /etc/yum.repos.d/epel.repo{,.bak}
+			sed -e "s/^mirror.*\(updates\|os\)$/#\0\nbaseurl=${RURL}\/\1\//" CentOS-Base.repo.bak > CentOS-Base.repo
+#			sed -e "s/^mirror.*\(epel\).*$/#\0\nbaseurl=${RURL}\/\1\//" epel.repo.bak > epel.repo
+		fi
 	fi
 elif [ -f /etc/debian_version ]; then
 	OS="debian"
@@ -16,6 +24,8 @@ else
 	echo "unsupported OS"
 	exit 1
 fi
+
+set -ex
 
 if [ "${OS}" == "centos" ]; then
 	yum -y install git yum-plugin-priorities man gcc gcc-c++ automake autoconf make openssl-devel.x86_64

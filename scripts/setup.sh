@@ -9,10 +9,8 @@ if [ -f /etc/redhat-release ]; then
 	UNAME=`cat /etc/redhat-release`
 	if [[ "${UNAME}" =~ .*CentOS.* ]];then
 		OS="centos"
-		if [ "${USE_MY_REPO}" = "yes" ];then
-			echo -n "input your repo :"
-			read RURL
-			RURL=${RURL%/}
+		if [ "${REPO_URL}" != "" ];then
+			RURL=${REPO_URL%/}
 			RURL=${RURL//\//\\\/}
 			mv /etc/yum.repos.d/CentOS-Base.repo{,.bak}
 #			mv /etc/yum.repos.d/epel.repo{,.bak}

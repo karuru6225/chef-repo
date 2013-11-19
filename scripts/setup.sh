@@ -3,19 +3,21 @@
 #以下のコマンドで実行する
 #curl -L https://raw.github.com/karuru6225/chef-repo/master/scripts/setup.sh | bash
 
+set -e
+
 if [ -f /etc/redhat-release ]; then
 	UNAME=`cat /etc/redhat-release`
 	if [[ "${UNAME}" =~ .*CentOS.* ]];then
 		OS="centos"
-		if [ "${USE_MY_REPO}" = "no" ];then
+		if [ "${USE_MY_REPO}" = "yes" ];then
 			echo -n "input your repo :"
 			read RURL
 			RURL=${RURL%/}
 			RURL=${RURL//\//\\\/}
 			mv /etc/yum.repos.d/CentOS-Base.repo{,.bak}
 #			mv /etc/yum.repos.d/epel.repo{,.bak}
-			sed -e "s/^mirror.*\(updates\|os\)$/#\0\nbaseurl=${RURL}\/\1\//" CentOS-Base.repo.bak > CentOS-Base.repo
-#			sed -e "s/^mirror.*\(epel\).*$/#\0\nbaseurl=${RURL}\/\1\//" epel.repo.bak > epel.repo
+			sed -e "s/^mirror.*\(updates\|os\)$/#\0\nbaseurl=${RURL}\/\1\//" /etc/yum.repos.d/CentOS-Base.repo.bak > /etc/yum.repos.d/CentOS-Base.repo
+#			sed -e "s/^mirror.*\(epel\).*$/#\0\nbaseurl=${RURL}\/\1\//" /etc/yum.repos.d/epel.repo.bak > /etc/yum.repos.d/epel.repo
 		fi
 	fi
 elif [ -f /etc/debian_version ]; then

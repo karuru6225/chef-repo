@@ -8,7 +8,7 @@
 #
 case node[:platform]
 when "centos", "amazon"
-	node['mysql::from_file']['packages'].each{|name|
+	node['mysql']['from_file']['packages'].each{|name|
 		rpm_package name do
 			action :install
 		end

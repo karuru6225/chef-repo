@@ -9,7 +9,11 @@
 case node[:platform]
 when "centos", "amazon"
 	node['mysql']['from_file']['packages'].each{|name|
-		rpm_package name do
+		file_path = "#{Chef::Config[:file_cache_path]}/" << name
+		remote_file file_path do
+			source "http://dev.mysql.com/get/Downloads/MySQL-5.6/#{name}/from/http://cdn.mysql.com/"
+		end
+		rpm_package file_path do
 			action :install
 		end
 	}

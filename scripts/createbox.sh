@@ -18,7 +18,9 @@ fi
 yum install -y gcc gcc-c++ automake autoconf make kernel-devel openssh-clients
 
 #install guest addition
+set +e
 sh /mnt/VBoxLinuxAdditions.run
+set -e
 
 #setting for vagrant
 adduser vagrant

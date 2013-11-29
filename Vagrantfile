@@ -19,8 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  #config.vm.network :forwarded_port, guest: 80, host: 8080
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 80, host: 8080
+  #config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -85,36 +85,38 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # some recipes and/or roles.
   #
   config.berkshelf.enabled = true
-  config.vm.provision :shell, :inline => "sudo service iptables stop"
-  :q
+  config.berkshelf.except = ['jenkins']
 
+  config.vm.provision :shell, :inline => "sudo service iptables stop"
 
   config.vm.provision :shell, :inline => "sudo chkconfig iptables off"
   config.vm.provision :chef_solo do |chef|
 #    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
-#    chef.cookbooks_path = "site-cookbooks"
-	chef.json = {
-		"java" => {
-			"oracle" => {
-				"accept_oracle_download_terms" => true
-			}
-		}
-	}
+    chef.cookbooks_path = "site-cookbooks"
+#	chef.json = {
+#		"java" => {
+#			"oracle" => {
+#				"accept_oracle_download_terms" => true
+#			}
+#		}
+#	}
 	chef.add_recipe "yum::epel"
 	chef.add_recipe "basic-packages"
-#	chef.add_recipe "devel-kit"
+	chef.add_recipe "devel-kit"
 	chef.add_recipe "bash"
 	chef.add_recipe "vim"
 	chef.add_recipe "git"
 	chef.add_recipe "tmux"
-	chef.add_recipe "apache2"
+#	chef.add_recipe "apache2"
 #	chef.add_recipe "ruby"
-	chef.add_recipe "mysql"
-	chef.add_recipe "php"
-	chef.add_recipe "phpMyAdmin"
+	chef.add_recipe "mysql::from_file"
+	chef.add_recipe "java"
+	chef.add_recipe "jboss"
+#	chef.add_recipe "php"
+#	chef.add_recipe "phpMyAdmin"
 #	chef.add_recipe "java::oracle"
-	chef.add_recipe "yumrepo::jenkins"
-	chef.add_recipe "jenkins::server"
+#	chef.add_recipe "yumrepo::jenkins"
+#	chef.add_recipe "jenkins::server"
 end
   # config.vm.provision :chef_solo do |chef|
   #   chef.cookbooks_path = "../my-recipes/cookbooks"

@@ -8,15 +8,17 @@
 #
 case node[:platform]
 when "centos", "amazon"
-
-	node['java']['from_file']['packages'].each{|name, url|
+	params=node['java']['from_file']
+	params['packages'].each{|name, url|
 		file_path = "#{Chef::Config[:file_cache_path]}/" << name
 		remote_file file_path do
 			source url
-			action :create_if_missing
+			action :create
+			not_if "rpm -qa | grep -q '#{name}'"
+			notifies :install, "rpm_package[#{file_path}]", :immediately
 		end
 		rpm_package file_path do
-			action :install
+			action :nothing
 		end
 	}
 end

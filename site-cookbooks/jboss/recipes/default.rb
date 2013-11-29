@@ -13,14 +13,16 @@ package 'unzip' do
 	action :install
 end
 
-file_path = "#{Chef::Config[:file_cache_path]}/#{params['name']}.zip"
-remote_file file_path do
-	source params['url']
-	action :create_if_missing
-end
+if !File.exists?("#{params['target']}/#{params['name']}")
+	file_path = "#{Chef::Config[:file_cache_path]}/#{params['name']}.zip"
+	remote_file file_path do
+		source params['url']
+		action :create_if_missing
+	end
 
-execute 'unzip_jboss' do
-	command "unzip -o -d \"#{params['target']}\" \"#{file_path}\""
+	execute 'unzip_jboss' do
+		command "unzip -o -d \"#{params['target']}\" \"#{file_path}\""
+	end
 end
 
 user 'jboss' do

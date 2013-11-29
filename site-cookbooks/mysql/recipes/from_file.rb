@@ -19,10 +19,12 @@ when "centos", "amazon"
 		remote_file file_path do
 			source url
 			action :create_if_missing
+			not_if "rpm -qa | grep -q '#{name}'"
+			notifies :install, "rpm_package[#{file_path}]", :immediately
 		end
 
 		rpm_package file_path do
-			action :install
+			action :nothing
 		end
 	}
 end

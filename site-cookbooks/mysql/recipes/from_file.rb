@@ -15,13 +15,22 @@ when "centos", "amazon"
 
 	node['mysql']['from_file']['packages'].each{|name, url|
 		file_path = "#{Chef::Config[:file_cache_path]}/" << name
+
 		remote_file file_path do
 			source url
 			action :create_if_missing
 		end
+
 		rpm_package file_path do
 			action :install
 		end
 	}
 end
 
+service "mysql" do
+	case node['platform']
+	when "centos"
+		service_name "mysql"
+	end
+	action [:enable, :restart]
+end

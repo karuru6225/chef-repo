@@ -5,7 +5,7 @@ echo 'Please setting sudoers and selinux before running this script.'
 set -ex
 
 mount /dev/cdrom /mnt
-if yum check-update; then
+if ! yum check-update; then
 	echo 'Please execute yum-update and reboot before running this script.'
 	exit 1
 fi

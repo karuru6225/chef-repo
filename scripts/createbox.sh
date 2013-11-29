@@ -1,8 +1,6 @@
 #!/bin/bash
 
 echo 'Please setting sudoers and selinux before running this script.'
-echo -n 'OK ? >'
-read
 
 set -ex
 
@@ -17,7 +15,7 @@ if [[ ! -f /mnt/VBoxLinuxAdditions.run ]];then
 fi
 
 #install for building guest addition
-yum install -y gcc gcc-c++ automake autoconf make kernel-devel
+yum install -y gcc gcc-c++ automake autoconf make kernel-devel openssh-clients
 
 #install guest addition
 sh /mnt/VBoxLinuxAdditions.run

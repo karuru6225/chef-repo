@@ -35,7 +35,7 @@ chown -R vagrant:vagrant /home/vagrant/.ssh
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 
 #install chef
-curl -L https://www.opscode.com/chef/install.sh | bash -s -v 11.6.2-1
+curl -L https://www.opscode.com/chef/install.sh | bash /dev/stdin -v 11.6.2-1
 
 yum remove -y gcc gcc-c++ automake autoconf make kernel-devel kernel-headers
 rm -f /var/lib/dhclient/*

@@ -13,10 +13,10 @@ when "centos", "amazon"
 		action :install
 	end
 
-	node['mysql']['from_file']['packages'].each{|name|
+	node['mysql']['from_file']['packages'].each{|name, url|
 		file_path = "#{Chef::Config[:file_cache_path]}/" << name
 		remote_file file_path do
-			source "http://dev.mysql.com/get/Downloads/MySQL-5.6/#{name}/from/http://cdn.mysql.com/"
+			source url
 			action :create_if_missing
 		end
 		rpm_package file_path do
@@ -24,5 +24,4 @@ when "centos", "amazon"
 		end
 	}
 end
-
 

@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "CentOS6.4x64_VB4.3.2"
+  config.vm.box = "CentOS6.4_x64_VB4.3.2_Chef11.6.2"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -88,11 +88,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.except = ['jenkins']
 
   config.vm.provision :shell, :inline => "sudo service iptables stop"
-
   config.vm.provision :shell, :inline => "sudo chkconfig iptables off"
+  config.vm.provision :shell, :path => "/vagrant/scripts/createkey.sh"
+
   config.vm.provision :chef_solo do |chef|
 #    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.cookbooks_path = "site-cookbooks"
+	chef.encrypted_data_bag_secret "key"
 #	chef.json = {
 #		"java" => {
 #			"oracle" => {
@@ -107,11 +109,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	chef.add_recipe "vim"
 	chef.add_recipe "git"
 	chef.add_recipe "tmux"
+	chef.add_recipe "users"
 #	chef.add_recipe "apache2"
 #	chef.add_recipe "ruby"
-	chef.add_recipe "mysql::from_file"
-	chef.add_recipe "java"
-	chef.add_recipe "jboss"
+#	chef.add_recipe "mysql::from_file"
+#	chef.add_recipe "java"
+#	chef.add_recipe "jboss"
 #	chef.add_recipe "php"
 #	chef.add_recipe "phpMyAdmin"
 #	chef.add_recipe "java::oracle"

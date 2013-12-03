@@ -13,3 +13,10 @@ cookbook_file "/etc/profile.d/my_bash_setting.sh" do
 	mode "0644"
 	source "my_bash_setting.sh"
 end
+
+file "/etc/skel/.bash_history" do
+	owner "root"
+	group "root"
+	mode "0644"
+	content ""
+end

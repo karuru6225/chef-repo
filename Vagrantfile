@@ -89,12 +89,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :inline => "sudo service iptables stop"
   config.vm.provision :shell, :inline => "sudo chkconfig iptables off"
-  config.vm.provision :shell, :path => "/vagrant/scripts/createkey.sh"
+#  config.vm.provision :shell, :path => "./scripts/createkey.sh"
 
   config.vm.provision :chef_solo do |chef|
 #    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.cookbooks_path = "site-cookbooks"
-	chef.encrypted_data_bag_secret "key"
+	chef.data_bags_path = "data_bags"
+	chef.encrypted_data_bag_secret = "/vagrant/key"
 #	chef.json = {
 #		"java" => {
 #			"oracle" => {
@@ -104,17 +105,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #	}
 	chef.add_recipe "yum::epel"
 	chef.add_recipe "basic-packages"
-	chef.add_recipe "devel-kit"
+#	chef.add_recipe "devel-kit"
 	chef.add_recipe "bash"
 	chef.add_recipe "vim"
 	chef.add_recipe "git"
 	chef.add_recipe "tmux"
 	chef.add_recipe "users"
+	chef.add_recipe "rbenv"
+	chef.add_recipe "rbenv::ruby_build"
 #	chef.add_recipe "apache2"
 #	chef.add_recipe "ruby"
 #	chef.add_recipe "mysql::from_file"
-#	chef.add_recipe "java"
-#	chef.add_recipe "jboss"
+	chef.add_recipe "java"
+	chef.add_recipe "jboss"
+	chef.add_recipe "maven2"
 #	chef.add_recipe "php"
 #	chef.add_recipe "phpMyAdmin"
 #	chef.add_recipe "java::oracle"

@@ -20,6 +20,10 @@ when "centos", "amazon"
 		rpm_package file_path do
 			action :nothing
 		end
+		cookbook_file "/etc/profile.d/java.sh" do
+			source "java.sh"
+			action :create
+		end
 	}
 end
 

@@ -66,9 +66,7 @@ git clone https://github.com/ianheggie/rbenv-binstubs.git
 chgrp -R rbadmin rbenv-binstubs
 chmod -R g+rwxs rbenv-binstubs
 
-#rbenv install 1.9.3-p448
-#rbenv global 1.9.3-p448
-rbenv install 2.0.0-p247
-rbenv global 2.0.0-p247
+rbenv install 2.0.0-p353
+rbenv global 2.0.0-p353
 gem install bundler --no-rdoc --no-ri
 

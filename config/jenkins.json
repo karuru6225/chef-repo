@@ -1,6 +1,6 @@
 {
 	"run_list" : [
-		"recipe[yum::epel]",
+		"recipe[yum-epel]",
 		"recipe[basic-packages]",
 		"recipe[bash]",
 		"recipe[vim]",

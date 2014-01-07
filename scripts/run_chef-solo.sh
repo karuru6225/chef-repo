@@ -1,4 +1,6 @@
 #!/bin/bash
 
 cd `dirname $0`; cd ../
-chef-solo -c solo.rb -j config/chef.json
+echo -n 'Please input config file : '
+read CFILE
+chef-solo -c solo.rb -j ${CFILE}

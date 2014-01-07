@@ -11,6 +11,7 @@ cookbook 'yum'
 cookbook 'yumrepo', git: 'https://github.com/atomic-penguin/cookbook-yumrepo.git'
 cookbook 'rbenv', git: 'https://github.com/RiotGames/rbenv-cookbook.git'
 cookbook 'nodejs', git: 'https://github.com/mdxp/nodejs-cookbook'
+cookbook 'phantomjs', git: 'https://github.com/customink-webops/phantomjs'
 
 cookbook 'apache2', path: './site-cookbooks/apache2'
 cookbook 'bash', path: './site-cookbooks/bash'

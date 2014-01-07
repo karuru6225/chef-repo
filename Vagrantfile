@@ -96,29 +96,34 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = "site-cookbooks"
 	chef.data_bags_path = "data_bags"
 	chef.encrypted_data_bag_secret = "/vagrant/key"
-#	chef.json = {
+	chef.json = {
 #		"java" => {
 #			"oracle" => {
 #				"accept_oracle_download_terms" => true
 #			}
 #		}
-#	}
+		"nodejs" => {
+			"version" => '0.10.23'
+		}
+	}
 	chef.add_recipe "yum::epel"
 	chef.add_recipe "basic-packages"
-#	chef.add_recipe "devel-kit"
+	chef.add_recipe "devel-kit"
 	chef.add_recipe "bash"
 	chef.add_recipe "vim"
 	chef.add_recipe "git"
 	chef.add_recipe "tmux"
-	chef.add_recipe "users"
-	chef.add_recipe "rbenv"
-	chef.add_recipe "rbenv::ruby_build"
-#	chef.add_recipe "apache2"
+#	chef.add_recipe "users"
+#	chef.add_recipe "rbenv"
+#	chef.add_recipe "rbenv::ruby_build"
+#	chef.add_recipe "nodejs"
+	chef.add_recipe "apache2"
 #	chef.add_recipe "ruby"
 #	chef.add_recipe "mysql::from_file"
-	chef.add_recipe "java"
-	chef.add_recipe "jboss"
-	chef.add_recipe "maven2"
+#	chef.add_recipe "java"
+#	chef.add_recipe "jboss"
+#	chef.add_recipe "ant::install_package"
+#	chef.add_recipe "maven2"
 #	chef.add_recipe "php"
 #	chef.add_recipe "phpMyAdmin"
 #	chef.add_recipe "java::oracle"

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd `dirname $0`; cd ../
-echo -n 'Please input config file : '
-read CFILE
-chef-solo -c solo.rb -j ${CFILE}
+if [[ $1 = "" ]];then
+	echo "USAGE: $0 <Config File Name>"
+	exit 1
+fi
+
+chef-solo -c solo.rb -j "$1"
